@@ -1,0 +1,33 @@
+<h2>Your Purchased Item</h2>
+<br>
+<div *ngIf="this.data">
+    <ng-container *ngFor="let all of data">
+        <h4>{{all.title}}</h4>
+        <table>
+            <thead>
+                <tr>
+                    <ng-container *ngFor="let data of header">
+                        <th> {{data.title}}</th>
+                    </ng-container>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img [src]="all.image" width="90" /></td>
+                    <td>{{all.firstname }} {{all.lastname}}</td>
+                    <td>MRP. {{all.price}}/-</td>
+                    <td>{{all.mobileno}}</td>
+                    <td>{{all.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </ng-container>
+</div>
+<div class="center" *ngIf="this.data == ''">
+    <h5>No Data Availabel.</h5>
+</div>
+
+<h6 class="left" (click)="activeModal.close()">
+    <span (click)="activeModal.close()">Back</span>
+</h6>

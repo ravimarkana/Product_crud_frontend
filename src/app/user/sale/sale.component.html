@@ -1,0 +1,35 @@
+<div class="flex">
+    <h1 class="right">User Site</h1> <br><br>
+    <h4 class="left">
+        <span (click)="openhistory()">Your Purchased Item</span>
+    </h4>
+</div>
+
+<input placeholder="Search" [formControl]="searchControl">
+
+<table class="table" *ngIf="products">
+    <thead>
+        <tr>
+            <ng-container *ngFor="let data of header">
+                <th>{{data.title}}</th>
+            </ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of activePageDataChunk let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{product.title}}</td>
+            <td class="image" (click)="image_open(i)"><img [src]="product.image" width="90"></td>
+            <td>{{product.price}}</td>
+            <td>{{product.details}}</td>
+            <td class="curser" (click)="open(i)">buy this product</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="center" *ngIf="this.activePageDataChunk == ''">
+    <h5>No Data Availabel.</h5>
+</div>
+
+<mat-paginator [length]="products.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChanged($event)"></mat-paginator>

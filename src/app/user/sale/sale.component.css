@@ -1,0 +1,21 @@
+.curser {
+    cursor: pointer
+}
+
+.flex {
+    display: flex;
+}
+
+.right {
+    margin-left: 4%;
+}
+
+.left {
+    margin-left: 60%;
+}
+
+.center {
+    margin-left: 40%;
+    margin-top: 10vh;
+    margin-bottom: 5%;
+}

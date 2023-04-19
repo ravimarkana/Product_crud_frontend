@@ -1,0 +1,11 @@
+<div [formGroup]="frmGroup" [ngClass]="{submitted:frmGroup}">
+    <span>First Name:</span>
+    <input type="text" formControlName="firstName" placeholder="enter your first name">
+    <span>Last Name:</span>
+    <input type="text" formControlName="lastName" placeholder="enter your last name">
+    <span>Mobile No. :</span>
+    <input type="number" formControlName="mobile_number" placeholder="enter your number">
+    <span>Address</span>
+    <input type="text" formControlName="address" placeholder="enter your Address">
+    <a (click)="submited()" class="btn">Submit</a>
+</div>

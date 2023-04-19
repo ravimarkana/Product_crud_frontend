@@ -1,0 +1,21 @@
+<h1>{{all.title}}</h1>
+
+<table>
+    <thead></thead>
+    <tbody>
+        <tr>
+            <td><img [src]="all.image" width="90" /></td>
+            <td>MRP. {{all.price}}/-</td>
+            <td>{{all.details}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="flex">
+    <h5 class="right" >
+    <span (click)="openmodal($event)">Buy</span>
+    </h5>
+    <h5 class="left" (click)="activeModal.close()">
+        <span (click)="activeModal.close()">Back</span>
+    </h5>
+</div>

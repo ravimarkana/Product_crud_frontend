@@ -1,0 +1,12 @@
+<form [formGroup]="form" (submit)="submit()">
+    <label>Title</label>
+    <input type="text" name="title" formControlName="title">
+    <label>Price</label>
+    <input type="text" name="price" formControlName="price">
+    <label>Image</label>
+    <input type="text" name="image" formControlName="image">
+    <label>Details</label>
+    <input type="text" name="details" formControlName="details">
+    <button type="submit">Save</button>
+    <a class="btn" routerLink="/admin/products">Back To All Product</a>
+</form>

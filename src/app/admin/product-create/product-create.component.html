@@ -1,0 +1,12 @@
+<form #loginForm="ngForm" (submit)="submit()">
+    <label>Title</label>
+    <input type="text" name="title" [(ngModel)]="title" ngModel required>
+    <label>Price</label>
+    <input type="text" name="price" [(ngModel)]="price" ngModel required>
+    <label>Image</label>
+    <input type="text" name="image" [(ngModel)]="image" ngModel required>
+    <label>Details</label>
+    <input type="text" name="details" [(ngModel)]="details" ngModel required>
+    <button type="submit" [disabled]="!loginForm.valid">Add Product</button> &nbsp;
+    <a class="btn" routerLink="/admin/products">Back To All Product</a>
+</form>

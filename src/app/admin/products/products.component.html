@@ -1,0 +1,32 @@
+<h1>Admin Site</h1> <br><br>
+<a routerLink="/admin/products/create" class="btn">Add Product </a> &nbsp; &nbsp;
+<a (click)="openBuyProduct()" class="btn">Buy Product </a>
+<input placeholder="Search" [formControl]="searchControl">
+
+<table class="table" *ngIf="products">
+    <thead class="thead">
+        <tr>
+            <ng-container *ngFor="let data of header">
+                <th> {{data.title}}</th>
+            </ng-container>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+        <tr *ngFor="let product of activePageDataChunk;  let i = index;">
+            <td>{{i + 1}}</td>
+            <td>{{product.title}}</td>
+            <td><img [src]="product.image" width="90" /></td>
+            <td>{{product.price}}</td>
+            <td>{{product.details}}</td>
+            <td><a class="btn" [routerLink]="['/admin/products/', product.id, 'edit']">Edit</a></td>
+            <td><button class="btn btn-del" (click)="productDel(product.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="center" *ngIf="this.activePageDataChunk == ''">
+    <h5>No Data Availabel.</h5>
+</div>
+
+<mat-paginator [length]="products.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChanged($event)"></mat-paginator>
